@@ -12,6 +12,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int height = 150;
   int weight = 70;
+  late double bmi = calculateBMI(height: height, weight: weight);
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +68,8 @@ class _MainPageState extends State<MainPage> {
                             onPressed: () {
                               setState(() {
                                 if (height > 50) height--;
+                                bmi = calculateBMI(
+                                    height: height, weight: weight);
                               });
                               print("height:$height");
                             },
@@ -82,6 +85,8 @@ class _MainPageState extends State<MainPage> {
                             onPressed: () {
                               setState(() {
                                 if (height < 220) height++;
+                                bmi = calculateBMI(
+                                    height: height, weight: weight);
                               });
                               print("height:$height");
                             },
@@ -108,6 +113,8 @@ class _MainPageState extends State<MainPage> {
                             onPressed: () {
                               setState(() {
                                 if (weight > 35) weight--;
+                                bmi = calculateBMI(
+                                    height: height, weight: weight);
                               });
                               print("Weight:$weight");
                             },
@@ -123,6 +130,8 @@ class _MainPageState extends State<MainPage> {
                             onPressed: () {
                               setState(() {
                                 if (weight < 300) weight++;
+                                bmi = calculateBMI(
+                                    height: height, weight: weight);
                               });
                               print("Weight:$weight");
                             },
@@ -145,10 +154,11 @@ class _MainPageState extends State<MainPage> {
               children: [
                 Text("BMI"),
                 Text(
-                  "22.00",
+                  bmi.toStringAsFixed(2),
                   style: kInputLabelColor.copyWith(
                       color: kOutputTextColor, fontSize: 55),
-                )
+                ),
+                Text(bmiCategory(bmi))
               ],
             )
           ]),
@@ -157,7 +167,19 @@ class _MainPageState extends State<MainPage> {
     );
   }
 
-  void onHeightMinus() {
-    print("h");
+  double calculateBMI({required int height, required int weight}) {
+    return weight / (height * height) * 10000;
+  }
+
+  String bmiCategory(double bmi) {
+    if (bmi < 18.5) {
+      return "Underweight";
+    } else if (bmi >= 18.5 && bmi < 24.9) {
+      return "Normal";
+    } else if (bmi >= 24.9 && bmi < 29.9) {
+      return "Overweight";
+    } else {
+      return "Obese";
+    }
   }
 }
