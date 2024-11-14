@@ -1,3 +1,4 @@
+import 'package:bmicalculator/constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,13 +10,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int height = 150;
+  int weight = 70;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
           color: Colors.white,
-          child: const Column(children: [
+          padding: const EdgeInsets.all(16),
+          child: Column(children: [
             Row(
               children: [
                 Padding(
@@ -45,6 +50,9 @@ class _MainPageState extends State<MainPage> {
                 )
               ],
             ),
+            SizedBox(
+              height: 50,
+            ),
             Row(
               children: [
                 Padding(
@@ -52,15 +60,16 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     children: [
                       Text("Height"),
-                      Text("176",
-                          style: TextStyle(
-                              color: Color(0xffffb047),
-                              fontSize: 50,
-                              fontWeight: FontWeight.bold)),
+                      Text("$height", style: kInputLabelColor),
                       Row(
                         children: [
                           FloatingActionButton(
-                            onPressed: null,
+                            onPressed: () {
+                              setState(() {
+                                if (height > 50) height--;
+                              });
+                              print("height:$height");
+                            },
                             child: Icon(
                               Icons.remove,
                               size: 30,
@@ -70,7 +79,12 @@ class _MainPageState extends State<MainPage> {
                             width: 25,
                           ),
                           FloatingActionButton(
-                            onPressed: null,
+                            onPressed: () {
+                              setState(() {
+                                if (height < 220) height++;
+                              });
+                              print("height:$height");
+                            },
                             child: Icon(
                               Icons.add,
                               size: 30,
@@ -87,15 +101,16 @@ class _MainPageState extends State<MainPage> {
                   child: Column(
                     children: [
                       Text("Width"),
-                      Text("76",
-                          style: TextStyle(
-                              color: Color(0xffffb047),
-                              fontSize: 50,
-                              fontWeight: FontWeight.bold)),
+                      Text("$weight", style: kInputLabelColor),
                       Row(
                         children: [
                           FloatingActionButton(
-                            onPressed: null,
+                            onPressed: () {
+                              setState(() {
+                                if (weight > 35) weight--;
+                              });
+                              print("Weight:$weight");
+                            },
                             child: Icon(
                               Icons.remove,
                               size: 30,
@@ -105,7 +120,12 @@ class _MainPageState extends State<MainPage> {
                             width: 25,
                           ),
                           FloatingActionButton(
-                            onPressed: null,
+                            onPressed: () {
+                              setState(() {
+                                if (weight < 300) weight++;
+                              });
+                              print("Weight:$weight");
+                            },
                             child: Icon(
                               Icons.add,
                               size: 30,
@@ -118,12 +138,26 @@ class _MainPageState extends State<MainPage> {
                 )
               ],
             ),
+            SizedBox(
+              height: 50,
+            ),
             Column(
-              children: [Text("BMI"), Text("22.00")],
+              children: [
+                Text("BMI"),
+                Text(
+                  "22.00",
+                  style: kInputLabelColor.copyWith(
+                      color: kOutputTextColor, fontSize: 55),
+                )
+              ],
             )
           ]),
         ),
       ),
     );
+  }
+
+  void onHeightMinus() {
+    print("h");
   }
 }
