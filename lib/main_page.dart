@@ -12,6 +12,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int height = 150;
   int weight = 70;
+  String gender = "";
   late double bmi = calculateBMI(height: height, weight: weight);
 
   @override
@@ -24,29 +25,55 @@ class _MainPageState extends State<MainPage> {
           child: Column(children: [
             Row(
               children: [
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.male,
-                        size: 150,
-                      ),
-                      Text("Male"),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    print("Male");
+                    setState(() {
+                      gender = "M";
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: gender == 'M'
+                            ? Colors.orange.withAlpha(150)
+                            : Colors.orange.withAlpha(50),
+                        borderRadius: BorderRadius.circular(25)),
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.male,
+                          size: 150,
+                        ),
+                        Text("Male"),
+                      ],
+                    ),
                   ),
                 ),
                 Spacer(),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.female,
-                        size: 150,
-                      ),
-                      Text("Female"),
-                    ],
+                GestureDetector(
+                  onTap: () {
+                    print("Female");
+                    setState(() {
+                      gender = "F";
+                    });
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: gender == 'F'
+                            ? Colors.orange.withAlpha(150)
+                            : Colors.orange.withAlpha(50),
+                        borderRadius: BorderRadius.circular(25)),
+                    padding: EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.female,
+                          size: 150,
+                        ),
+                        Text("Female"),
+                      ],
+                    ),
                   ),
                 )
               ],
