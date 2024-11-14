@@ -1,4 +1,3 @@
----
 # BMI Calculator
 
 A simple BMI Calculator built with Flutter. This app allows users to select their gender, adjust their height and weight, and calculates their Body Mass Index (BMI) based on these inputs. The app then categorizes the BMI result as Underweight, Normal, Overweight, or Obese.
@@ -41,5 +40,3 @@ This app was built using a tutorial from [YouTube].
 ## License
 
 This project is open-source and free to use.
-
---- 
