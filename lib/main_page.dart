@@ -1,5 +1,4 @@
 import 'package:bmicalculator/constant.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -38,8 +37,8 @@ class _MainPageState extends State<MainPage> {
                             ? Colors.orange.withAlpha(150)
                             : Colors.orange.withAlpha(50),
                         borderRadius: BorderRadius.circular(25)),
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Column(
                       children: [
                         Icon(
                           Icons.male,
@@ -50,7 +49,7 @@ class _MainPageState extends State<MainPage> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 GestureDetector(
                   onTap: () {
                     print("Female");
@@ -64,8 +63,8 @@ class _MainPageState extends State<MainPage> {
                             ? Colors.orange.withAlpha(150)
                             : Colors.orange.withAlpha(50),
                         borderRadius: BorderRadius.circular(25)),
-                    padding: EdgeInsets.all(8.0),
-                    child: Column(
+                    padding: const EdgeInsets.all(8.0),
+                    child: const Column(
                       children: [
                         Icon(
                           Icons.female,
@@ -78,16 +77,16 @@ class _MainPageState extends State<MainPage> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Row(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      Text("Height"),
+                      const Text("Height"),
                       Text("$height", style: kInputLabelColor),
                       Row(
                         children: [
@@ -100,12 +99,12 @@ class _MainPageState extends State<MainPage> {
                               });
                               print("height:$height");
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.remove,
                               size: 30,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 25,
                           ),
                           FloatingActionButton(
@@ -117,7 +116,7 @@ class _MainPageState extends State<MainPage> {
                               });
                               print("height:$height");
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.add,
                               size: 30,
                             ),
@@ -127,12 +126,12 @@ class _MainPageState extends State<MainPage> {
                     ],
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8.0),
                   child: Column(
                     children: [
-                      Text("Width"),
+                      const Text("Width"),
                       Text("$weight", style: kInputLabelColor),
                       Row(
                         children: [
@@ -145,12 +144,12 @@ class _MainPageState extends State<MainPage> {
                               });
                               print("Weight:$weight");
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.remove,
                               size: 30,
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 25,
                           ),
                           FloatingActionButton(
@@ -162,7 +161,7 @@ class _MainPageState extends State<MainPage> {
                               });
                               print("Weight:$weight");
                             },
-                            child: Icon(
+                            child: const Icon(
                               Icons.add,
                               size: 30,
                             ),
@@ -174,12 +173,12 @@ class _MainPageState extends State<MainPage> {
                 )
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Column(
               children: [
-                Text("BMI"),
+                const Text("BMI"),
                 Text(
                   bmi.toStringAsFixed(2),
                   style: kInputLabelColor.copyWith(
